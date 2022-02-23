@@ -14,7 +14,9 @@ export default function App() {
     return data.slice(firstPageIndex, lastPageIndex);
   }, [currentPage]);
 
+
   return (
+    
     <>
       <table>
         <thead>
@@ -28,7 +30,7 @@ export default function App() {
             return (
               <tr>
                 <td>{item.id}</td>
-                <td>{item.title}</td>
+                <td>{item.title}</td><input type="checkbox"/><button>Delete</button>
               </tr>
             );
           })}
