@@ -14,6 +14,16 @@ export default function App() {
     return data.slice(firstPageIndex, lastPageIndex);
   }, [currentPage]);
 
+  // const handleRemoveItem = (e) => {
+  //   const name = e.target.getAttribute("name")
+  //    updateList(list.filter(item => item.name !== name));
+  //  };
+
+   const handleDel = item => {
+   return (({ data }) => ({
+      data: data.filter(el => el.id !== item.id)
+    }));
+  };
 
   return (
     
@@ -30,7 +40,8 @@ export default function App() {
             return (
               <tr>
                 <td>{item.id}</td>
-                <td>{item.title}</td><input type="checkbox"/><button>Delete</button>
+                <td>{item.title}</td><input type="checkbox"/>
+                <td><button onClick={handleDel}>&times;</button></td>
               </tr>
             );
           })}
